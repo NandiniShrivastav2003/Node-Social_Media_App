@@ -1,18 +1,27 @@
 <html>
-    <head>
-        <title>
-<%= title %>
-        </title>
-    </head>
-    <body>
-<h1> this is <%= title%> </h1>
-<form action= "/users/create" method="post">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm password" required>
-    <input type="submit" name="submit" >
 
-</form>
-    </body>
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <h1 id="myid"> this is <%= title%>
+        </h1>
+        <form action="/users/create" method="post">
+            <input type="text" name="name" placeholder="Your Name" class="a" required>
+            <input type="email" name="email" placeholder="Your Email" class="b" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm password" required>
+            <input type="submit" name="submit" class="c">
+
+        </form>
+    </div>
+
+</body>
+
 </html>

@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#design {
+  text-align: center;
+  background-color: aliceblue;
+}
+
+#auth-list {
+  display: flex;
+  position: absolute;
+  list-style-type: none;
+  right: 19px;
+  top: -36px;
+}
+
+#foot {
+  background-color: cornsilk;
+  color: blue;
+  font-size: 47px;
+  margin-top: 40vw;
+  text-align: center;
+}
+
+#form-style {
+  background-color: aliceblue;
+  background-color: aliceblue;
+  width: 33vw;
+  height: 30vh;
+  position: absolute;
+  left: 78px;
+  bottom: 71px;
+}
+
+#form-block {
+  background-color: aquamarine;
+  width: 46vw;
+  height: 58vh;
+  position: absolute;
+  left: 60vh;
+  top: 18vh;
+}
+
+.b {
+  display: block;
+  position: absolute;
+  left: 98px;
+  top: 69px;
+  height: 5vh;
+  width: 18vw;
+}
+
+.a {
+  height: 5vh;
+  position: absolute;
+  top: 35px;
+  left: 99px;
+  width: 18vw;
+}
+
+.c {
+  display: block;
+  position: absolute;
+  top: 115px;
+  background-color: aquamarine;
+  color: brown;
+  font-weight: 800;
+  lefT: 12vw;
+}
+
+.box {
+  background-color: azure;
+  width: 67vw;
+  height: 84vh;
+  position: absolute;
+  left: 16vw;
+  top: 4vw;
+}
+
+#myid {
+  position: absolute;
+  top: 4vw;
+  left: 24vw;
+}

@@ -5,15 +5,22 @@
         <%= title %>
     </title>
 </head>
+<link rel="stylesheet" href="/css/layout.css">
 
 <body>
-    <h1> this is <%= title %>
-    </h1>
-<form action="/users/create-session" method="post">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" name="submit">
-</form>
+    <div id="form-block">
+        <h1 id="head"> This is <%= title %>
+        </h1>
+        <div id="form-style">
+            <form action="/users/create-session" method="post">
+                <input type="email" name="email" placeholder="Email" class="a" required>
+                <input type="password" name="password" placeholder="Password" class="b" required>
+                <input type="submit" class="c" name="submit">
+            </form>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

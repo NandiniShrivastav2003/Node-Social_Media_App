@@ -3,7 +3,7 @@ module.exports.home = function (req, res) {
     // console.log(req.cookies); // getting cookies from browser
     // res.cookie('user_id','20');
     // res.cookie('something','pink');       //setting cookies from requests
-   return res.render('home',{
-    title:"Home page"
-   })
+    return res.render('home', {
+        title: "Home page"
+    })
 }
