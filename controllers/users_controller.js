@@ -27,6 +27,7 @@ module.exports.footer = function (req, res) {
         title: "footer"
     })
 }
+
 //get the sign-up data
 module.exports.create = function (req, res) {
     if (req.body.password != req.body.confirm_password) {

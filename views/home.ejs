@@ -9,6 +9,28 @@
 <body>
     <h1 id="design"> Codeial/ <%= title %>
     </h1>
+    <section id="feed-posts">
+        <h4>Posts</h4>
+        <form action="/posts/create" id="new-post-form" method="post">
+            <textarea name="content" rows="3" cols="20" placeholder="type here..."></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <div id="post-container">
+            <ul>
+                <% for (post of posts){%>
+                    <li>
+                        <%= post.content%>
+                        <br>
+                        Created By:
+                        <small><%= post.user.name%></small>
+                        <br>
+                        Created At:
+                        <small><%= post.user.createdAt%></small>
+                    </li>
+                    <%} %>
+            </ul>
+        </div>
+    </section>
     <%-include('header'); %> 
     <%-include('footer'); %> 
 </body>
