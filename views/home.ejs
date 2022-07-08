@@ -12,29 +12,61 @@
     <section id="feed-posts">
         <h4>Posts</h4>
         <% if(locals.user){%>
-        <form action="/posts/create" id="new-post-form" method="post">
-            <textarea name="content" rows="3" cols="20" placeholder="type here..."></textarea>
-            <input type="submit" value="Post">
-        </form>
-        <% } %>
-        <div id="post-container">
-            <ul>
-                <% for (post of posts){%>
-                    <li>
-                        <%= post.content%>
-                        <br>
-                        Created By:
-                        <small><%= post.user.name%></small>
-                        <br>
-                        Created At:
-                        <small><%= post.user.createdAt%></small>
-                    </li>
-                    <%} %>
-            </ul>
-        </div>
+            <form action="/posts/create" id="new-post-form" method="post">
+                <textarea name="content" rows="3" cols="20" placeholder="type here..."></textarea>
+                <input type="submit" value="Post">
+            </form>
+            <% } %>
+                <div id="post-container">
+                    <ul>
+                        <% for (post of posts){%>
+                            <li>
+
+                                <small>
+                                    <a href="/posts/destroy/<%= post.id %>">X</a>
+                                </small>
+                                <%= post.content%>
+                                    <br>
+                                    Created By:
+                                    <small>
+                                        <%= post.user.name%>
+                                    </small>
+                                    <br>
+
+                                    <div class="post-comment">
+                                        <% if(locals.user){%>
+                                            <form action="comments/create" method="post">
+                                                <input type="text" name="content" placeholder="type comment">
+                                                <input type="hidden" name="post" value="<%= post._id%>">
+                                                <input type="submit" value="add comment">
+                                            </form>
+                                            <%}%>
+                                                <div class="post-comment-list">
+                                                    <ul id="post-comments-<%= post._id %>">
+                                                        <% for(comment of post.comments){%>
+                                                            <%= comment.content %>
+                                                                <br>
+                                                                <%= comment.user.name %>
+                                                                    <br>
+                                                                    <small>
+                                                                        <a
+                                                                            href="/comment/destroy/<%= comment.id %>">X</a>
+                                                                    </small>
+                                                                    <br>
+                                                                    <%}%>
+                                                    </ul>
+                                                </div>
+
+
+                                    </div>
+
+                            </li>
+                            <%} %>
+                    </ul>
+                </div>
     </section>
-    <%-include('header'); %> 
-    <%-include('footer'); %> 
+    <%-include('header'); %>
+        <%-include('footer'); %>
 </body>
 
 </html>
