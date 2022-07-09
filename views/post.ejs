@@ -1,0 +1,40 @@
+<li>
+
+    <small>
+        <a href="/posts/destroy/<%= post.id %>">X</a>
+    </small>
+    <%= post.content%>
+        <br>
+        Created By:
+        <small>
+            <%= post.user.name%>
+        </small>
+        <br>
+
+        <div class="post-comment">
+            <% if(locals.user){%>
+                <form action="comments/create" method="post">
+                    <input type="text" name="content" placeholder="type comment">
+                    <input type="hidden" name="post" value="<%= post._id%>">
+                    <input type="submit" value="add comment">
+                </form>
+                <div class="post-comment-list">
+                    <ul id="post-comments-<%= post._id %>">
+                        <% for(comment of post.comments){%>
+                            <%= comment.content %>
+                                <br>
+                                <%= comment.user.name %>
+                                    <br>
+                                    <small>
+                                        <a href="/comments/destroy/<%= comment.id %>">X</a>
+                                    </small>
+                                    <br>
+                                    <%}%>
+                    </ul>
+                </div>
+
+
+        </div>
+
+</li>
+<%} %>

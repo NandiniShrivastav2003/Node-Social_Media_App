@@ -1,5 +1,6 @@
 const { populate } = require('../models/post');
 const Post = require('../models/post');
+const User=require('../models/users')
 module.exports.home = function (req, res) {
     // return res.end('<h1>Express is up for Codeial</h1>')
     // console.log(req.cookies); // getting cookies from browser
@@ -24,10 +25,14 @@ Post.find({})
     }
 })
 .exec(function(err,posts){
-    return res.render('home', {
-        title: "Home page",
-        posts:posts,
-        
+    User.find({},function(err,users){
+        return res.render('home', {
+            title: "Home page",
+            posts:posts,
+            all_users:users
+            
+        })
     })
+    
 })
 }
