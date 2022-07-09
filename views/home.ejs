@@ -4,6 +4,7 @@
     <title>
         <%= title %>
     </title>
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
@@ -11,7 +12,7 @@
     </h1>
     <div id="home-container">
         <section id="feed-posts">
-            <h4>Posts</h4>
+            <h4 id="post-heading">Posts</h4>
             <% if(locals.user){%>
                 <form action="/posts/create" id="new-post-form" method="post">
                     <textarea name="content" rows="3" cols="20" placeholder="type here..."></textarea>
@@ -27,18 +28,19 @@
                         </ul>
                     </div>
         </section>
+        <section id="user-friends">
+            <h4>Friends</h4>
+            <% for(u of all_users){%>
+                <p>
+                    <a href="/users/profile/<%= u.id%>">
+                        <%=u.name%>
+                    </a>
+                </p>
+                <%}%>
+        </section>
     </div>
    
-    <section id="user-friends">
-        <h4>Friends</h4>
-        <% for(u of all_users){%>
-            <p>
-                <a href="/users/profile/<%= u.id%>">
-                    <%=u.name%>
-                </a>
-            </p>
-            <%}%>
-    </section>
+    
     <%-include('header'); %>
         <%-include('footer'); %>
 </body>

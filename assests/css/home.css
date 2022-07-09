@@ -1,0 +1,17 @@
+#home-container {
+  display: flex;
+}
+
+#feed-posts {
+  width: 74vw;
+}
+
+#post-heading {
+  text-align: center;
+  font-size: 38px;
+}
+
+#user-friends {
+  border-left: 2px solid black;
+  padding: 81px;
+}
