@@ -1,25 +1,25 @@
 const User = require('../models/users')
 module.exports.profile = function (req, res) {
-    User.findById(req.params.id,function(err,user){
+    User.findById(req.params.id, function (err, user) {
         return res.render('profile', {
             title: "profile page",
-            profile_user:user
+            profile_user: user
         });
-    
+
     });
 }
 module.exports.update = function (req, res) {
-    if(req.user.id == req.params.id){
-        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+    if (req.user.id == req.params.id) {
+        User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
             return res.redirect('back');
         });
     }
-    else{
+    else {
         return res.status(401).send('Unauthorized');
     }
 }
 module.exports.signup = function (req, res) {
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         return res.redirect('/users/profile');
     }
     return res.render('signup', {
@@ -111,12 +111,15 @@ module.exports.create = function (req, res) {
 //     })
 //}
 module.exports.createsession = function (req, res) {
-return res.redirect('/users/header');
+    req.flash('success', 'signed in 😀');
+    return res.redirect('/');
+
 }
 module.exports.destroySession = function (req, res) {
-    req.logout(function(err){
-        if(err){return next(err);}
-        return res.redirect('/users/header');
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        req.flash('success', 'logout successfully');
+        return res.redirect('/');
     });
-   
+
 }

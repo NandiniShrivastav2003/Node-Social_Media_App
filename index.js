@@ -11,6 +11,9 @@ const passportLocal = require('./config/passport');
 const mongoose = require('mongoose');
 
 
+const flash=require('connect-flash');
+const customMiddleware=require('./config/middleware');
+
 const sassMiddleWare = require('node-sass-middleware');
 app.use(sassMiddleWare({
  src: './assests/scss',
@@ -19,7 +22,6 @@ app.use(sassMiddleWare({
     outputStyle: 'expanded',
     prefix: '/css'
 }));
-
 app.use(express.static('./assests'))
 app.use(express.urlencoded({
     extended: true
@@ -45,6 +47,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customMiddleware.setFlash);
 app.use('/', require('./routes'));
 app.listen(port, function (err) {
     if (err) {
