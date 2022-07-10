@@ -23,6 +23,9 @@ app.use(sassMiddleWare({
     prefix: '/css'
 }));
 app.use(express.static('./assests'))
+//make the upload path available to browser
+
+app.use('/uploads',express.static(__dirname+'/uploads'));
 app.use(express.urlencoded({
     extended: true
 }));
