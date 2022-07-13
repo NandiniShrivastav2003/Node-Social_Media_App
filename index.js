@@ -8,11 +8,13 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport');
+const passportJWT=require('./config/passport-jwt-strategy');
 const mongoose = require('mongoose');
 
 
 const flash=require('connect-flash');
 const customMiddleware=require('./config/middleware');
+const passportGoogle=require('./config/passport-google-oauth2-strategy')
 
 const sassMiddleWare = require('node-sass-middleware');
 app.use(sassMiddleWare({
@@ -53,6 +55,7 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(customMiddleware.setFlash);
 app.use('/', require('./routes'));
+
 app.listen(port, function (err) {
     if (err) {
         console.log('Error:', err);
